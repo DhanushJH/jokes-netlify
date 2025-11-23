@@ -87,8 +87,8 @@
 
         async function saveJoke()
         {
-            const joke = getElementById("jokeInput").value.trim();
-            const status = getElementById("submitStatus");
+            const joke = documet.getElementById("jokeInput").value.trim();
+            const status = document.getElementById("submitStatus");
                 
             if(!joke)
             {
@@ -102,8 +102,8 @@
                 const response = await fetch("https://render-deployment-aydy.onrender.com/add", 
                 {
                    method: "POST",
-                   headers: {"Content-type": "application/json"},
-                   body: JSON.stringify(joke: joke)
+                   headers: {"Content-Type": "application/json"},
+                   body: JSON.stringify({joke: joke})
                 }
                 );
                 
@@ -126,9 +126,10 @@
                 status.textContent = "Service Unavailable";
                 status.style.color = "red";
             }
-
-            document.getElementById("submitBtn").addEventListener("click", submitJoke);
         }
+
+        document.getElementById("submitBtn").addEventListener("click", submitJoke);
+
    </script>
    </body>
 </html>
